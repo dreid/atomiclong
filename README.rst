@@ -21,6 +21,6 @@ Example::
     >>> a.value = 1000
     >>> a.value
     1000
-    >>> a.value -= 100
+    >>> a -= 100
     >>> a.value
     900
