@@ -9,7 +9,7 @@ Sometimes you need to increment some numbers
 
 It uses `CFFI`_ to bind `GCC's Atomic Builtins`_.
 
-It's value is a C ``long`` which can be incremented, decremented, and set
+Its value is a C ``long`` which can be incremented, decremented, and set
 atomically.  It is inspired by Java's `java.util.concurrent.atomic.AtomicLong`_.
 
 Example::
