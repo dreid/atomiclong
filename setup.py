@@ -31,6 +31,7 @@ setup(
     author_email='dreid@dreid.org',
     url='https://github.com/dreid/atomiclong',
     long_description=README,
+    license='MIT',
     py_modules=['atomiclong'],
     setup_requires=['cffi'],
     install_requires=['cffi'],
