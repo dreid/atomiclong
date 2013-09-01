@@ -2,8 +2,8 @@ AtomicLong
 ==========
 
 Sometimes you need to increment some numbers
-… atomically
-… in python.
+... atomically
+... in python.
 
 ``AtomicLong`` was born out of the need for fast thread-safe counters in python.
 
