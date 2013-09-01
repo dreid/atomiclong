@@ -8,7 +8,7 @@ Sometimes you need to increment some numbers
 
 ``AtomicLong`` was born out of the need for fast thread-safe counters in python.
 
-... python::
+Example::
 
     >>> from atomiclong import AtomicLong
     >>> a = AtomicLong(0)
