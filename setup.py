@@ -26,10 +26,11 @@ with open('README.rst') as r:
 
 setup(
     name='atomiclong',
-    version='0.1',
+    version='0.1.1',
     author='David Reid',
     author_email='dreid@dreid.org',
     url='https://github.com/dreid/atomiclong',
+    description="An AtomicLong type using CFFI.",
     long_description=README,
     license='MIT',
     py_modules=['atomiclong'],
