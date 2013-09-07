@@ -68,3 +68,28 @@ def test_atomiclong_ordering():
     assert l1 > -1
     assert l1 >= -1
     assert l1 >= 0
+
+def test_atomiclong_self_comparison_race():
+    """
+    When comparing an AtomicLong to itself, it is possible that
+    self.value and other.value will not be equal because the underlying
+    long may have been incremented by another thread during the comparison.
+
+    Here we simulate this situation by ensuring that AtomicLong.value returns
+    two different numbers during the comparisons, by swapping out the
+    underlying storage for an object that pops items off a list.
+    """
+    class StubStorage(object):
+        def __init__(self, values):
+            self._values = values
+
+        def __getitem__(self, _idx):
+            return self._values.pop()
+
+    l1 = AtomicLong(0)
+
+    l1._storage = StubStorage([0, 1])
+    assert l1 == l1
+
+    l1._storage = StubStorage([0, 1])
+    assert not (l1 < l1)
