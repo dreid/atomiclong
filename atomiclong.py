@@ -51,7 +51,13 @@ class AtomicLong(object):
         return self
 
     def __eq__(self, other):
-        if isinstance(other, AtomicLong):
+        # This is needed because between `self.value` and `other.value` being
+        # evaluated it's possible for the value to be changed (and since this
+        # is a library predicated on threads being a thing, we have to care
+        # about such rare race conditions)
+        if self is other:
+            return True
+        elif isinstance(other, AtomicLong):
             return self.value == other.value
         else:
             return self.value == other
@@ -60,7 +66,10 @@ class AtomicLong(object):
         return not (self == other)
 
     def __lt__(self, other):
-        if isinstance(other, AtomicLong):
+        # See __eq__ for an explanation of why this is a thing.
+        if self is other:
+            return False
+        elif isinstance(other, AtomicLong):
             return self.value < other.value
         else:
             return self.value < other

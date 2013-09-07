@@ -48,6 +48,7 @@ def test_atomiclong_eq():
     assert not (l1 != l3)
     assert l1 != l2
     assert not (l1 == l2)
+    assert l1 == l1
 
 def test_atomiclong_ordering():
     l1 = AtomicLong(0)
@@ -67,6 +68,3 @@ def test_atomiclong_ordering():
     assert l1 > -1
     assert l1 >= -1
     assert l1 >= 0
-
-
-
