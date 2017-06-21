@@ -1,5 +1,5 @@
-AtomicLong
-==========
+*DO NOT USE THIS* AtomicLong *DO NOT USE THIS*
+==============================================
 
 Sometimes you need to increment some numbers
 ... atomically
